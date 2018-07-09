@@ -7,6 +7,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { RepositoryComponent } from './repository/repository.component';
+import { RepositoryDetailComponent } from './repository/repository-detail.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +15,14 @@ import { RepositoryComponent } from './repository/repository.component';
     NavMenuComponent,
     HomeComponent,
     FooterComponent,
-    RepositoryComponent
+    RepositoryComponent,
+    RepositoryDetailComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       { path: 'repo', component: RepositoryComponent },
-      // { path: 'repo/:id', component: RpositoryDetailComponent },
+      { path: 'repo/:id', component: RepositoryDetailComponent },
       { path: 'home', component: HomeComponent},
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home', pathMatch: 'full' }
