@@ -1,0 +1,53 @@
+section#hero {
+    background-color: #36adad;
+    padding: 2em;
+    border-top: 5px solid #2ea0a0;
+
+    display: grid;
+    grid-template-columns: 60% auto;
+    grid-template-rows: 365px;
+    align-items: center;
+}
+
+section h1 {
+    text-transform: uppercase;
+    color: #fffbc5;
+}
+
+#content p {
+    color: #fff;
+}
+
+img {
+    max-width: 100%;
+    background-size: cover;
+    margin: 0 auto;
+}
+
+#img-github {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+@media screen and (max-width: 40em) {
+   
+    section#hero {
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+
+    #img-github {
+        width: 100px;
+        height: 100px;
+    }
+
+    #content p {
+        font-size: .9em;
+    }
+}
