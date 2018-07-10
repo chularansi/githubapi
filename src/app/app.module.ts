@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -8,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { RepositoryComponent } from './repository/repository.component';
 import { RepositoryDetailComponent } from './repository/repository-detail.component';
+
+import { RepositoryService } from './repository/repository.service';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,8 @@ import { RepositoryDetailComponent } from './repository/repository-detail.compon
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'repo', component: RepositoryComponent },
       { path: 'repo/:id', component: RepositoryDetailComponent },
@@ -28,7 +34,7 @@ import { RepositoryDetailComponent } from './repository/repository-detail.compon
       { path: '**', redirectTo: 'home', pathMatch: 'full' }
     ])
   ],
-  providers: [],
+  providers: [ RepositoryService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
