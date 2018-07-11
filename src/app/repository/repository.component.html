@@ -1,3 +1,39 @@
-<p>
-  repository works!
-</p>
+<ul class="panel">
+    <li>
+      <div id="panel-header">
+          Repositoy List
+      </div>
+      <div class="body">
+
+        <div id="content-repo">
+          <div>
+            Filter by name:
+            <input type="text" [(ngModel)]='repoFilter' />
+          </div>
+          <br />
+          <div>
+            <table *ngIf='repositories && repositories.length'>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor='let repository of filteredRepos'>
+                  <td>
+                    <a [routerLink]="['/repo', repository.id]">
+                      {{ repository.name }}
+                    </a>
+                  </td>
+                  <td>{{ repository.description }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div> 
+
+      </div> <!-- panel body end -->
+      <div class="cta"><a href="">Call to action!</a></div>
+    </li>
+</ul>

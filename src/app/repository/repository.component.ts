@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RepositoryService } from './repository.service';
 import { IRepository } from './repository';
 
 @Component({
@@ -8,19 +9,10 @@ import { IRepository } from './repository';
 })
 export class RepositoryComponent implements OnInit {
 
-  repositories: IRepository[] = [
-    {
-      "id": 364,
-      "name": "acts_as_geocodable",
-      "description": "Simple geocoding for Active Record models",
-      "html_url": "https://github.com/collectiveidea/acts_as_geocodable",
-      "clone_url": "https://github.com/collectiveidea/acts_as_geocodable.git",
-      "language": "Ruby",
-    }
-  ]
-
+  errorMessage: string;
+  repositories: IRepository[];
   _repoFilter: string;
-  filteredRepos: IRepository[];
+  filteredRepos: any[];
 
   get repoFilter(): string {
     return this._repoFilter;
@@ -30,17 +22,24 @@ export class RepositoryComponent implements OnInit {
     this.filteredRepos = this.repoFilter ? this.performFilter(this.repoFilter) : this.repositories;
   }
 
-  performFilter(filterBy: string): IRepository[] {
+  performFilter(filterBy: string): any[] {
     var filterBy = filterBy.toLocaleLowerCase();
-    return this.repositories.filter((repo: IRepository) => 
+    return this.repositories.filter((repo: any) => 
       repo.name.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 
-  constructor() {
-    this.filteredRepos = this.repositories;
+  constructor(private _repositoryService: RepositoryService) {
+  
   }
 
   ngOnInit() {
+    this._repositoryService.getRepositories()
+      .subscribe(repos => {
+                  // console.log(repos);
+                  this.repositories = repos,
+                  this.filteredRepos = this.repositories
+                },
+                  error => this.errorMessage = <any>error
+      );
   }
-
 }

@@ -1,0 +1,11 @@
+thead {
+  color: #337ab7
+}
+thead tr th, tbody tr td {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+a {
+  text-decoration: none;
+}
+
