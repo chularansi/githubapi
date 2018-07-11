@@ -1,7 +1,7 @@
 section#hero {
     background-color: #36adad;
     padding: 2em;
-    border-top: 5px solid #2ea0a0;
+    /* border-top: 5px solid #2ea0a0; */
 
     display: grid;
     grid-template-columns: 60% auto;

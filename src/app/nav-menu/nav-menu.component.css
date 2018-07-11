@@ -15,7 +15,7 @@ ul li a {
 
 header {
     background-color: #41C7C7;
-
+    border-bottom: 5px solid #2ea0a0;
     display: grid;
     grid-template-columns: fit-content(25%) auto;
     grid-template-rows: 51px;
