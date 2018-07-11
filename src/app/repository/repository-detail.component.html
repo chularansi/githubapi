@@ -1,3 +1,32 @@
-<p>
-  repository-detail works!
-</p>
+<ul class="panel">
+    <li>
+      <div id="panel-header">
+          Repositoy: {{repository.name}}
+      </div>
+      <div class="body">
+          <table>
+            <tbody>
+              <tr>
+                <td>Name:</td><td class="left-space">{{repository.name}}</td>
+              </tr>
+              <tr>
+                <td>Description:</td><td class="left-space">{{repository.description}}</td>
+              </tr>
+              <tr>
+                <td>Html Url:</td><td class="left-space"><a [href]="repository.html_url">{{repository.html_url}}</a></td>
+              </tr>
+              <tr>
+                <td>Clone Url:</td><td class="left-space">{{repository.clone_url}}</td>
+              </tr>
+              <tr>
+                <td>Language:</td><td class="left-space">{{repository.language}}</td>
+              </tr>
+            </tbody>
+          </table>
+        
+      </div> <!-- panel body end -->
+      <div class="cta">
+        <button (click)="onBack()" type="button">Back</button>
+      </div>
+    </li>
+</ul>
