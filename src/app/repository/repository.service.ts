@@ -7,6 +7,8 @@ import { IRepository } from './repository';
 @Injectable()
 export class RepositoryService {
 
+  private repository: IRepository;
+
   private _repositoryUrl = 'https://api.github.com/repositories';
 
   constructor(private _http: HttpClient) { }
@@ -24,6 +26,14 @@ export class RepositoryService {
           language: el.language
         }))
       }),
+      catchError(this.handleError)
+    );
+  }
+
+  getRepository(id: number): Observable<IRepository> {
+    return this._http.get<IRepository>(this._repositoryUrl + '/' + id)
+    .pipe(
+      map(data => this.repository = data),
       catchError(this.handleError)
     );
   }
