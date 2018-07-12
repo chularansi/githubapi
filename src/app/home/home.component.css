@@ -5,7 +5,7 @@ section#hero {
 
     display: grid;
     grid-template-columns: 60% auto;
-    grid-template-rows: 365px;
+    grid-template-rows: 368px;
     align-items: center;
 }
 
