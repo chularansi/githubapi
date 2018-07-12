@@ -12,16 +12,18 @@ export class RepositoryComponent implements OnInit {
   errorMessage: string;
   repositories: IRepository[];
   _repoFilter: string;
-  filteredRepos: any[];
+  filteredRepos: IRepository[];
 
   get repoFilter(): string {
     return this._repoFilter;
   }
   set repoFilter(value: string) {
     this._repoFilter = value;
+    //call performFilter function when repoFilter has some data
     this.filteredRepos = this.repoFilter ? this.performFilter(this.repoFilter) : this.repositories;
   }
 
+  //filter function
   performFilter(filterBy: string): any[] {
     var filterBy = filterBy.toLocaleLowerCase();
     return this.repositories.filter((repo: any) => 
