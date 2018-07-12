@@ -1,15 +1,24 @@
 .left-space {
     padding-left: 15px;
 }
-/* .panel li {
+.panel {
+    grid-template-rows: 400px;
+}
+#back-button {
+    background-color: #008CBA;
     border: 1px solid #36adad;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-  }
-  .panel .cta {
-    margin-top: auto;
-    border-top: 1px solid #36adad;
-    padding: 10px;
-    text-align: center;
-  } */
+    color: white;
+    padding: 5px 32px;
+}
+td {
+    vertical-align: top;
+}
+@media screen and (max-width: 40em) {
+
+    .panel {
+        grid-template-rows: auto;
+        font-size: .8em;
+        margin-left: -1.0em;
+    }
+}
+
