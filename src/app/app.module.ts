@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -32,7 +33,8 @@ import { RepositoryService } from './repository/repository.service';
       { path: 'home', component: HomeComponent},
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home', pathMatch: 'full' }
-    ])
+    ]),
+    NgxPaginationModule
   ],
   providers: [ RepositoryService ],
   bootstrap: [AppComponent]
