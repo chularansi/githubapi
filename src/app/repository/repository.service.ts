@@ -13,6 +13,7 @@ export class RepositoryService {
 
   constructor(private _http: HttpClient) { }
 
+  //get all repos
   getRepositories(): Observable<IRepository[]> {
     return this._http.get<IRepository[]>(this._repositoryUrl)
     .pipe(
@@ -30,6 +31,7 @@ export class RepositoryService {
     );
   }
 
+  //get one repo
   getRepository(id: number): Observable<IRepository> {
     return this._http.get<IRepository>(this._repositoryUrl + '/' + id)
     .pipe(
@@ -38,6 +40,7 @@ export class RepositoryService {
     );
   }
 
+  //handle error function
   private handleError(err: HttpErrorResponse) {
     console.log(err.message);
     return throwError(err.message);
