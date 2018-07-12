@@ -8,4 +8,20 @@ thead tr th, tbody tr td {
 a {
   text-decoration: none;
 }
+.panel {
+  grid-template-rows: 400px;
+}
+.panel .cta {
+  margin-bottom: -15px;
+}
+#td-name {
+  vertical-align: top;
+}
+@media screen and (max-width: 40em) {
 
+  .panel {
+      grid-template-rows: auto;
+      font-size: .8em;
+      margin-left: -1.0em;
+  }
+}
